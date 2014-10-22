@@ -1,0 +1,38 @@
+_welcome:
+    path:     /
+    defaults: { _controller: AcmeDemoBundle:Welcome:index }
+
+_demo_secured:
+    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
+    type:     annotation
+
+_demo:
+    resource: "@AcmeDemoBundle/Controller/DemoController.php"
+    type:     annotation
+    prefix:   /demo
+
+index:
+    path:     /index
+    defaults: { _controller: AcmeDemoBundle:Main:index }
+about:
+    path:     /about
+    defaults: { _controller: AcmeDemoBundle:Main:about }	
+contact:
+    path:     /contact
+    defaults: { _controller: AcmeDemoBundle:Main:contact }
+parent:
+    path:     /parent
+    defaults: { _controller: AcmeDemoBundle:Main:parent }
+    methods: [ 'GET','POST' ]
+teacher:
+    path:     /teacher
+    defaults: { _controller: AcmeDemoBundle:Main:teacher }
+advisor:
+    path:     /advisor
+    defaults: { _controller: AcmeDemoBundle:Main:advisor }
+testimonial:
+    path:     /testimonial
+    defaults: { _controller: AcmeDemoBundle:Main:testimonial }	
+advisorInfoAction:
+    path:     /advisorInfo
+    defaults: { _controller: AcmeDemoBundle:Main:advisorInfo }

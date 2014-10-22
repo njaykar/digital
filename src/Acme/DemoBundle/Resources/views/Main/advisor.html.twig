@@ -1,0 +1,304 @@
+{% block html %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Career Advisors</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/bundles/acmedemo/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/bundles/acmedemo/css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/bundles/acmedemo/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- <form action="{{ path('advisor', {'slug' : 'advisor'}) }}" method="post"> -->
+	
+  <!-- Database Connection -->
+     
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('index', {'slug' : 'index'}) }}">ICT Student Engagement</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{{ path('index', {'slug' : 'index'}) }}">Home</a>
+                    </li>
+					<li>
+                        <a href="{{ path('parent', {'slug' : 'parent'}) }}">Parent</a>
+                    </li>
+					<li>
+                        <a href="{{ path('teacher', {'slug' : 'teacher'}) }}">Teacher</a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ path('advisor', {'slug' : 'advisor'}) }}">Career Advisor</a>
+                    </li>
+                  
+                   
+                   
+              
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header" style="color:#FF00FF">Information for
+                    <small>Career Advisor</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('index', {'slug' : 'index'}) }}">Home</a>
+                    </li>
+                    <li class="active">Services</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Image Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="/bundles/acmedemo/images/advisor.jpeg" alt="">
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Service Panels -->
+        <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header" style="color:#FF00FF">Different Jobs List</h2>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <img src="/bundles/acmedemo/images/hello-world.jpg" width="600" height="300">
+                    </div>
+                    <div class="panel-body">
+                        <h4></h4>
+                       <table>
+						  		 <thead>
+									<tr >
+									<th >Job Role<?php echo "\t" ?></th>    
+									<th>Skills</th> 		
+									</tr>	
+									</thead>
+									<tbody>
+						{% for result in results %}	
+
+								{% if result.jobType == 'helpful' %}	
+									<tr><td>{{ result.jobRole }}<?php echo "\t" ?></td>
+									<td>{{ result.skills }}</td></tr>
+								{% endif %}	
+	                            {% endfor %}
+						</tbody>
+						</table>
+						
+						
+                         <button type="submit" name="help" class="btn btn-primary btn-lg btn-block">
+                         Help People
+                       </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                       <img src="/bundles/acmedemo/images/marketing.jpg" width="600" height="300">
+                    </div>
+                    <div class="panel-body">
+                        <h4></h4>
+						<table>
+						  		 <thead>
+									<tr >
+									<th >Job Role</th><?php echo "\t" ?>    
+									<th>Skills</th> 		
+									</tr>	
+									</thead>
+									<tbody>
+						{% for result in results %}	
+
+								{% if result.jobType == 'Marketing ' %}	
+									<tr><td>{{ result.jobRole }}<?php echo "\t" ?></td>
+									<td>{{ result.skills }}</td></tr>
+								{% endif %}	
+	                            {% endfor %}
+						</tbody>
+						</table>
+                        
+                       <button type="submit" name="marketing" class="btn btn-primary btn-lg btn-block">
+                         Marketing and Sales
+                       </button>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <img src="/bundles/acmedemo/images/business.jpg" width="600" height="300">
+                    </div>
+                    <div class="panel-body">
+                        <h4></h4>
+						<table>
+						  		 <thead>
+									<tr >
+									<th >Job Role</th><?php echo "\t" ?>    
+									<th>Skills</th> 		
+									</tr>	
+									</thead>
+									<tbody>
+						{% for result in results %}	
+
+								{% if result.jobType == 'Business Analysis' %}	
+									<tr><td>{{ result.jobRole }}</td><?php echo "\t" ?>
+									<td>{{ result.skills }}</td></tr>
+								{% endif %}	
+	                            {% endfor %}
+						</tbody>
+						</table>
+                        
+                        <button type="submit" name="business" class="btn btn-primary btn-lg btn-block">
+                         Business Analysis
+                       </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                       <img src="/bundles/acmedemo/images/creative.jpg" width="600" height="300">
+                    </div>
+                    <div class="panel-body">
+                        <h4></h4>
+						<div id="creative"></div>
+                       <table>
+					   
+						  		 <thead>
+									<tr >
+									<th >Job Role</th><?php echo "\t" ?>    
+									<th>Skills</th> 		
+									</tr>	
+									</thead>
+									<tbody>
+						{% for result in results %}	
+
+								{% if result.jobType == 'Creative ' %}	
+									<tr><td>{{ result.jobRole }}</td><?php echo "\t" ?>
+									<td>{{ result.skills }}</td></tr>
+								{% endif %}	
+	                            {% endfor %}
+						</tbody>
+						</table>
+						
+
+    }, "json");    
+}
+                        <button type="submit" name="creative" onclick= "" class="btn btn-primary btn-lg btn-block">
+                         Creativity and Innovation
+                       </button>
+                    </div>
+                </div>
+            </div>
+			      <div class="col-lg-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                       <img src="/bundles/acmedemo/images/engineering.jpg" width="600" height="300">
+                    </div>
+                    <div class="panel-body">
+                        <h4></h4>
+                        <table>
+						  		 <thead>
+									<tr >
+									<th >Job Role</th><?php echo "\t" ?>    
+									<th>Skills</th> 		
+									</tr>	
+									</thead>
+									<tbody>
+						{% for result in results %}	
+
+								{% if result.jobType == 'Engineering ' %}	
+									<tr><td>{{ result.jobRole }}</td><?php echo "\t" ?>
+									<td>{{ result.skills }}</td></tr>
+								{% endif %}	
+	                            {% endfor %}
+						</tbody>
+						</table>
+                         <button type="submit" name="engineering" class="btn btn-primary btn-lg btn-block">
+                         Engineering and Technical
+                       </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Tabs -->
+        
+
+        <!-- Service List -->
+        <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+        
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+	
+	
+	
+    <!-- jQuery Version 1.11.0 -->
+    <script src="/bundles/acmedemo/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/bundles/acmedemo/js/bootstrap.min.js"></script>
+</form>
+</body>
+
+</html>
+
+{% endblock %}
